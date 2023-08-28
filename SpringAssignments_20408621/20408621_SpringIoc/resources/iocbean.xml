@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+      <bean id="t1" class="com.SpringIoc.Test">
+       <property name="testId" value="10111"></property>
+    <property name="testName" value="Java"></property>
+    <property name="testMarks" value="90"></property>
+      </bean>
+      <bean id="t2" class="com.SpringIoc.Test">
+       <property name="testId" value="111"></property>
+    <property name="testName" value="Python"></property>
+    <property name="testMarks" value="86"></property>
+      </bean>
+    <bean id="std1" class="com.SpringIoc.Student">
+    <property name="studentId" value="10111"></property>
+    <property name="studentName" value="Manohar"></property>
+    <property name="test">
+    <list value-type="java.util.List">
+    <ref bean="t1"/>
+    </list>
+    </property>
+    </bean>
+    <bean id="std2" class="com.SpringIoc.Student">
+    <property name="studentId" value="101"></property>
+    <property name="studentName" value="Raju"></property>
+    <property name="test">
+    <list value-type="java.util.List">
+    <ref bean="t1"/>
+     <ref bean="t2"/>
+    </list>
+    </property>
+    </bean>
+</beans>

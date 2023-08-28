@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Patient</title>
+</head>
+<body>
+<form action="#" th:action="@{/addPatient}" th:object="${patients}" method="post">
+<table>
+<tr>
+   <td> <label for="name">Id</label></td>
+   <td> <input type="text" th:field="*{id}" id="name" placeholder="id"><br></td>
+</tr>
+<tr>
+   <td> <label for="email">First Name</label></td>
+   <td> <input type="text" th:field="*{firstname}" id="email" placeholder="firstname"><br></td>
+</tr>   
+<tr> 
+    <td><label for="email1">Last Name</label></td>
+   <td> <input type="text" th:field="*{lastname}" id="email1" placeholder="Lastname"><br></td>
+</tr> 
+<tr>   
+   <td> <input type="submit" value="Add Patient"></td>
+   </tr>
+    </table>
+</form>
+</body>
+</html>

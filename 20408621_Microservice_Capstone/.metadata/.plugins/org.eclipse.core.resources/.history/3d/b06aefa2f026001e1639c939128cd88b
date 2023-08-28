@@ -1,0 +1,116 @@
+package com.shopping.controller;
+
+import java.util.List;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.shopping.DemoModels.Cart;
+import com.shopping.DemoModels.Customer;
+import com.shopping.DemoModels.CustomerAndOrderMapping;
+import com.shopping.DemoModels.Inventory;
+import com.shopping.DemoModels.Lineitem;
+import com.shopping.DemoModels.Orders;
+import com.shopping.DemoModels.Product;
+import com.shopping.ServiceCommunication.CartService;
+import com.shopping.ServiceCommunication.CustomerService;
+import com.shopping.ServiceCommunication.InventoryService;
+import com.shopping.ServiceCommunication.MapRepository;
+import com.shopping.ServiceCommunication.OrderService;
+import com.shopping.ServiceCommunication.ProductService;
+
+@RestController
+@RequestMapping("/api/shoppingservice")
+public class ShoppingController {
+
+	@Autowired 
+	ProductService prod;
+	
+	@Autowired
+	InventoryService in;
+	
+	@Autowired
+	CustomerService cs;
+	
+	@Autowired
+	CartService cars;
+	
+	@Autowired
+	MapRepository mr;
+	
+	@Autowired
+	OrderService os;
+	
+	int pid=0;
+	int orderid=0;
+	@PostMapping("/products")
+	public ResponseEntity<?> addingProductAndInventory(@RequestBody Product product) {
+		
+		Inventory inm=new Inventory();
+		inm.setProductId(++pid);
+		inm.setQuantity(product.getQuantity());
+		in.addInventory(inm);
+		return prod.addProduct(product);
+	}
+	@PostMapping("/customer")
+	public ResponseEntity<?> addCustomer(@RequestBody Customer cus) {
+		cs.addCustomer(cus);
+		Cart c = new Cart();
+		c.setCartId(cus.getCustomerId());
+		cars.addCart(c);
+		return cs.addCustomer(cus);
+	}
+	@PutMapping("/customer/{id}/cart")
+	public ResponseEntity<?> addItemstoCart(@RequestBody Cart cart,@PathVariable("id") int id) {
+		
+		return cars.updateCart(cart, id);
+		
+	}
+	@PostMapping("/customer/{id}/order")
+	public ResponseEntity<?> addOrder(@PathVariable("id") int id) {
+		if(cs.searchCustomer(id)) {
+			CustomerAndOrderMapping comp=new CustomerAndOrderMapping();
+			comp.setCustomerId(id);
+			comp.setOrderId(++orderid);
+			mr.save(comp);
+			List<Lineitem> lis=cars.getAll(id);
+			Orders or = new Orders();
+			or.setOrderId(orderid);
+			or.setListitem(lis);
+			Cart c= new Cart();
+			c.setCartId(id);
+			c.setListitem(null);
+			cars.updateCart(c, id);
+			for(Lineitem li:lis) {
+				int p=li.getProductId();
+				int q=li.getQuantity();
+				
+			}
+			return os.addOrder(or);
+		}
+		else {
+			return new ResponseEntity<>("Customer Not found",HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/customer/{id}/orders")
+	public ResponseEntity<?> getAllOrders(@PathVariable int id){
+		if(cs.searchCustomer(id)) {
+		List<Integer> lis=mr.findallIds(id);
+		lis.stream().forEach(System.out::println);
+		return new ResponseEntity<>(os.findOrders(lis),HttpStatus.OK);
+	}else {
+		return new ResponseEntity<>("Customer not found",HttpStatus.NOT_FOUND);
+	}
+	}
+	
+}

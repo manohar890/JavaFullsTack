@@ -1,0 +1,74 @@
+package com.example.Customer.Service;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import com.example.Customer.Dao.CustomerRepository;
+import com.example.Customer.Model.Customer;
+
+@Service
+public class CustomerService {
+	
+	@Autowired
+	CustomerRepository cr;
+	
+	public ResponseEntity<?> addCustomer(Customer cus)
+	{
+		try
+		{
+			return new ResponseEntity<>(cr.save(cus),HttpStatus.CREATED);
+		}
+		catch (Exception e)
+		{
+			return new ResponseEntity<>("Error",HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+}
+	
+	public List<Customer> getAll(){
+		return cr.findAll();
+	}
+	public ResponseEntity<?> deleteCustomer(int cid)
+	{
+		Optional<Customer> cur= cr.findById(cid);
+		if(!cur.isEmpty())
+		{
+			cr.deleteById(cid);
+			return new ResponseEntity<>(cid +" customer deleted",HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<>("id not found",HttpStatus.NOT_FOUND);
+		}
+		
+	}
+	public ResponseEntity<?> updateCustomer(Customer c,int cid)
+	{
+		Optional<Customer> cur =cr.findById(cid);
+		if(!cur.isEmpty()) {
+			return new ResponseEntity<>(cr.save(c),HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<>("id not found",HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	public ResponseEntity<?> searchCustomer(int cid){
+		Optional<Customer> cur=cr.findById(cid);
+		if(!cur.isEmpty())
+		{
+			return new ResponseEntity<>(cur.get(),HttpStatus.OK);
+			
+		}
+		else
+		{
+			return new ResponseEntity<>("id not found",HttpStatus.NOT_FOUND);
+		}
+		
+	}
+	
+
+}

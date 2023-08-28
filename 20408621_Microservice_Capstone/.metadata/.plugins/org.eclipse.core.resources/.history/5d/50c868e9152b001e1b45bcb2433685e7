@@ -1,0 +1,22 @@
+package com.shopping.DemoModels;
+
+import java.util.List;
+
+public class ListOrders {
+
+	private Customer C;
+	private List<Orders> ords;
+	public Customer getC() {
+		return C;
+	}
+	public void setC(Customer c) {
+		C = c;
+	}
+	public List<Orders> getOrds() {
+		return ords;
+	}
+	public void setOrds(List<Orders> ords) {
+		this.ords = ords;
+	}
+	
+}

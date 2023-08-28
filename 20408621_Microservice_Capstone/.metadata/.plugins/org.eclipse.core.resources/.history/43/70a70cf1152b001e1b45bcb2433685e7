@@ -1,0 +1,11 @@
+package com.shopping.DemoModels;
+
+import java.util.List;
+
+public class ListOrders {
+
+	private Customer CustomerDetails;
+	private List<Orders> Orders;
+	
+	
+}

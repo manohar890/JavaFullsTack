@@ -1,0 +1,11 @@
+server:
+  port: 8069
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+      
+spring:
+  application:
+    name: Order

@@ -1,0 +1,66 @@
+package com.shopping.DemoModels;
+
+
+public class Lineitem {
+	
+	private int itemId;
+	
+	private int productId;
+
+	private String productName;
+
+	private String quantity;
+ 
+	private String price;
+	public Lineitem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Lineitem(int itemId, String productId, String productName, String quantity, String price) {
+		super();
+		this.itemId = itemId;
+		this.productId = productId;
+		this.productName = productName;
+		this.quantity = quantity;
+		this.price = price;
+	}
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public String getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Lineitem [itemId=" + itemId + ", productId=" + productId + ", productName=" + productName
+				+ ", quantity=" + quantity + ", price=" + price + "]";
+	}
+	
+	
+	
+
+}

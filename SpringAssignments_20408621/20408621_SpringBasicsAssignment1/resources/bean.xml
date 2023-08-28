@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+    <bean id="movie1" class="com.SpringAssignment.Movie">
+    <property name="movieId" value="MOO1"></property>
+    <property name="movieName" value="The Firm"></property>
+    <property name="movieActor" value="Tom Cruise"></property>
+    </bean>
+</beans>

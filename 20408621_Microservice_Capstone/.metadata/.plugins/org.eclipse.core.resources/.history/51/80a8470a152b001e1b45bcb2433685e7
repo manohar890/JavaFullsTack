@@ -1,0 +1,5 @@
+package com.example.Customer.Dao;
+
+public interface ShippingAdressRepository {
+
+}

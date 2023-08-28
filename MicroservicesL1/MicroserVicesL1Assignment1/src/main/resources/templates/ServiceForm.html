@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Service</title>
+</head>
+<body>
+<form action="#" th:action="@{/addService}" th:object="${services}" method="post">
+<table>
+<tr>
+   <td> <label for="name">Id</label></td>
+   <td> <input type="text" th:field="*{id}" id="name" placeholder="id"><br></td>
+</tr>
+<tr>
+   <td> <label for="email">Service Name</label></td>
+   <td> <input type="text" th:field="*{service_name}" id="email" placeholder="Service name"><br></td>
+</tr>   
+<tr> 
+    <td><label for="email1">Charge</label></td>
+   <td> <input type="text" th:field="*{fees}" id="email1" placeholder="Charge"><br></td>
+</tr> 
+<tr>   
+   <td> <input type="submit" value="Add Service"></td>
+   </tr>
+    </table>
+</form>
+</body>
+</html>

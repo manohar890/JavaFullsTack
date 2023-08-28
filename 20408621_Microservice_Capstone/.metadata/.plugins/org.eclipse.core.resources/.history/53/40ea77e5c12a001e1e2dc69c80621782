@@ -1,0 +1,51 @@
+package com.example.Order.Model;
+
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="Orders")
+public class Orders {
+	@Id
+	private int orderId;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(referencedColumnName = "orderId",name= "oid")
+	private List<Lineitem> listitem;
+	public Orders() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Orders(int orderId, List<Lineitem> listitem) {
+		super();
+		this.orderId = orderId;
+		this.listitem = listitem;
+	}
+	public int getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+	public List<Lineitem> getListitem() {
+		return listitem;
+	}
+	public void setListitem(List<Lineitem> listitem) {
+		this.listitem = listitem;
+	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", listitem=" + listitem + "]";
+	}
+	
+	
+
+
+}

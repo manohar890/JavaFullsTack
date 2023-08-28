@@ -1,0 +1,7 @@
+package com.example.Customer.Dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ShippingAdressRepository extends JpaRepository<ShippingAdressRepository, Integer> {
+
+}
