@@ -1,0 +1,52 @@
+{
+     "products":[
+        {
+            "productId":1,
+            "productName":"poco X3 Pro",
+            "productPrice":"23000",
+            "productQuantity":100
+        },
+        {
+            "productId":2,
+            "productName":"poco X3 Pro",
+            "productPrice":"23000",
+            "productQuantity":100
+        },
+        {
+            "productId":3,
+            "productName":"poco X3 Pro",
+            "productPrice":"23000",
+            "productQuantity":100
+        },
+        {
+            "productId":4,
+            "productName":"poco X3 Pro",
+            "productPrice":"23000",
+            "productQuantity":100
+        },
+        {
+            "productId":5,
+            "productName":"poco X3 Pro",
+            "productPrice":"23000",
+            "productQuantity":100
+        },
+        {
+            "productId":6,
+            "productName":"poco X3 Pro",
+            "productPrice":"23000",
+            "productQuantity":100
+        },
+        {
+            "productId":7,
+            "productName":"poco X3 Pro",
+            "productPrice":"23000",
+            "productQuantity":100
+        },
+        {
+            "productId":8,
+            "productName":"poco X3 Pro",
+            "productPrice":"23000",
+            "productQuantity":100
+        }
+     ] 
+}

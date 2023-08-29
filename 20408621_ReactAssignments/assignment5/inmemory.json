@@ -1,0 +1,76 @@
+{
+  "productData": [
+    {
+      "id": 1,
+      "productName": "Redmi",
+      "productQuantity": 10,
+      "productPrice": 20000
+    },
+    {
+      "id": 2,
+      "productName": "Nokia",
+      "productQuantity": 10,
+      "productPrice": 20000
+    },
+    {
+      "id": 3,
+      "productName": "Real Me",
+      "productQuantity": 10,
+      "productPrice": 20000
+    },
+    {
+      "id": 4,
+      "productName": "Poco",
+      "productQuantity": 10,
+      "productPrice": 20000
+    },
+    {
+      "productName": "redmi12",
+      "productQuantity": 3,
+      "productPrice": "20000",
+      "id": 5
+    },
+    {
+      "productName": "redmi12",
+      "productQuantity": 1211,
+      "productPrice": "122",
+      "id": 6
+    },
+    {
+      "productName": "redmi12",
+      "productQuantity": 2,
+      "productPrice": "11111",
+      "id": 7
+    },
+    {
+      "productName": "Xmloo",
+      "productQuantity": 12221,
+      "productPrice": "1122233",
+      "id": 8
+    },
+    {
+      "productName": "redmi12",
+      "productQuantity": 1221,
+      "productPrice": "111",
+      "id": 9
+    },
+    {
+      "productName": "iphone 12s",
+      "productQuantity": 10000,
+      "productPrice": "130000",
+      "id": 10
+    },
+    {
+      "productName": "redmi12",
+      "productQuantity": 111,
+      "productPrice": "1222",
+      "id": 11
+    },
+    {
+      "productName": "newlyadded",
+      "productQuantity": 1121,
+      "productPrice": "1",
+      "id": 12
+    }
+  ]
+}
